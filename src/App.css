@@ -26,12 +26,12 @@
 .products {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 140px;
-  margin-top: 50px;
+  margin-bottom: 160px;
+  margin-top: 30px;
 }
 
 .products div {
-  height: 200px;
+  height: 180px;
   width: 100%;
 }
 
@@ -49,28 +49,28 @@
 }
 
 .topnav {
-    background-color: #333;
+    background-color: #FAEF38;
     overflow: hidden;
 }
 
 .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: #333;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
     font-size: 0.9em;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #333;
+    color: white;
 }
 
 .topnav a.active {
     font-weight: bold;
-    border-bottom: 2px solid #c40018;
-    color: white;
+    border-bottom: 2px solid #333;
+    color: #333;
 }
 
 .topnav .cart {

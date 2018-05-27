@@ -47,6 +47,33 @@ class App extends Component {
               <p>PRICE: 200:-</p> <button>ADD TO CART</button>
             </div>
           </div>
+          <div className="products">
+            <div>
+              <img src={bb8} alt="bb8"/>
+              <p><strong>BB-8 Vinyl Bobblehead</strong></p>
+              <p>PRICE: 200:-</p> <button>ADD TO CART</button>
+            </div>
+            <div>
+              <img src={bb9e} alt="bb9e"/>
+              <p><strong>BB-9E Vinyl Bobblehead</strong></p>
+              <p>PRICE: 200:-</p> <button>ADD TO CART</button>
+            </div>
+            <div>
+              <img src={r2d2} alt="r2d2"/>
+              <p><strong>R2-D2 Vinyl</strong></p>
+              <p>PRICE: 200:-</p> <button>ADD TO CART</button>
+            </div>
+            <div>
+              <img src={yoda} alt="yoda"/>
+              <p><strong>Yoda Vinyl Bobble-Head</strong></p>
+              <p>PRICE: 200:-</p> <button>ADD TO CART</button>
+            </div>
+            <div>
+              <img src={darthvader} alt="darthvader"/>
+              <p><strong>Darth Vader Vinyl Bobble-Head</strong></p>
+              <p>PRICE: 200:-</p> <button>ADD TO CART</button>
+            </div>
+          </div>
         </div>
       </div>
     );
