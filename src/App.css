@@ -4,7 +4,6 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 150px;
 }
 
@@ -48,6 +47,8 @@
   cursor: pointer;
 }
 
+
+/*MENU CSS*/
 .topnav {
     background-color: #FAEF38;
     overflow: hidden;
@@ -68,11 +69,50 @@
 }
 
 .topnav a.active {
-    font-weight: bold;
-    border-bottom: 2px solid #333;
-    color: #333;
+    background-color: #333;
+    color: white;
 }
 
 .topnav .cart {
   float: right;
+}
+
+
+/*FORM CSS*/
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #FAEF38;
+    color: #333;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #FAEF38;
+}
+
+input:focus {
+    background-color: #FAEF38;
+    outline: none;
+}
+
+.Admin {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 300px;
+    margin: 50px auto;
+    display: flex;
 }
