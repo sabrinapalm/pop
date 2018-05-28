@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import firebase from '../globals/firebase';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { createProduct } from '../actions/productActions';
 
 class Admin extends Component {
 constructor() {
@@ -25,13 +27,10 @@ onSubmit(event) {
     title: this.state.title,
     price: this.state.price,
     photo: this.state.photo,
-  }
+  };
 
-  firebase.database().ref('products/').push({
-        title: product.title,
-        price: product.price,
-        photo: product.photo,
-      })
+//CALL ACTION
+this.props.createProduct(product);
 
 }
 
@@ -56,4 +55,8 @@ onSubmit(event) {
   }
 }
 
-export default Admin;
+Admin.propTypes = {
+  createProduct: PropTypes.func.isRequired
+}
+
+export default connect(null, { createProduct })(Admin);
