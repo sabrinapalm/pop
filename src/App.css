@@ -92,6 +92,17 @@ input[type=text], select, textarea {
     resize: vertical;
 }
 
+input[type=number], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
 input[type=submit] {
     background-color: #FAEF38;
     color: #333;
@@ -99,6 +110,8 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    border: 1px solid lightgrey;
+    width: 100%;
 }
 
 input[type=submit]:hover {
@@ -117,4 +130,32 @@ input:focus {
     width: 300px;
     margin: 50px auto;
     display: flex;
+    border: 1px solid lightgrey;
+}
+
+
+/*CSS CART*/
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width: 400px;
+  text-align: left;
+  margin: 50px auto;
+}
+
+.price {
+  float: right;
+}
+
+.checkoutButton {
+  background-color: #FAEF38;
+  color: #333;
+  padding: 12px 20px;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
 }
