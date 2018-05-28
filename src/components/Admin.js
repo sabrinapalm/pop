@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import firebase from '../globals/firebase';
 
 class Admin extends Component {
 constructor() {
@@ -26,7 +27,11 @@ onSubmit(event) {
     photo: this.state.photo,
   }
 
-  console.log(product)
+  firebase.database().ref('products/').push({
+        title: product.title,
+        price: product.price,
+        photo: product.photo,
+      })
 
 }
 
