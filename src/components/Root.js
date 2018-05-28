@@ -3,11 +3,6 @@ import '../App.css';
 import Header from './Header';
 
 class Root extends Component {
-constructor() {
-  super();
-  this.state = {}
-}
-
   render() {
     return (
       <div className="App">

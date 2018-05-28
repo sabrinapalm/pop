@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, FETCH_PRODUCTS } from './types';
+import { ADD_PRODUCT, FETCH_PRODUCTS, BUY_PRODUCT } from './types';
 import firebase from '../globals/firebase';
 
 export const fetchProducts = () => dispatch => {
@@ -22,5 +22,16 @@ export const createProduct = (product) => dispatch => {
   dispatch({
     type: ADD_PRODUCT,
     payload: product
+  })
+};
+
+
+export const buyProduct = (selected) => dispatch => {
+  let arr = [];
+  arr.push(selected);
+  console.log(arr);
+  dispatch({
+    type: BUY_PRODUCT,
+    payload: arr
   })
 };

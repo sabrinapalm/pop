@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../actions/productActions'
+import { fetchProducts, buyProduct } from '../actions/productActions'
 
 
 class Products extends Component {
@@ -11,13 +11,22 @@ class Products extends Component {
     this.props.fetchProducts();
   }
 
+  onClick = (title, price, photo) => {
+    let product = {
+      title,
+      price,
+      photo,
+    }
+    this.props.buyProduct(product);
+  }
+
 render() {
   const productItems = this.props.products.map(product => (
     <div key={product.title}>
       <img src={product.photo} alt={product.title}/>
       <p><strong>{product.title}</strong></p>
       <p>PRICE: {product.price}:-</p>
-      <button key={product.title} onClick={this.onClick}>ADD TO CART</button>
+      <button onClick={() => { this.onClick(product.title, product.price, product.photo); }}>ADD TO CART</button>
     </div>
   ));
   return (
@@ -36,7 +45,8 @@ Products.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.items
+  products: state.products.items,
+  product: state.products.selected,
 });
 
-export default connect(mapStateToProps, { fetchProducts })(Products);
+export default connect(mapStateToProps, { fetchProducts, buyProduct })(Products);

@@ -1,8 +1,9 @@
-import { ADD_PRODUCT, FETCH_PRODUCTS } from '../actions/types';
+import { ADD_PRODUCT, FETCH_PRODUCTS, BUY_PRODUCT } from '../actions/types';
 
 const initialState = {
+  selected: [],
   items: [],
-  item: {}
+  item: {},
 }
 
 export default function(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function(state = initialState, action) {
     return {
       ...state,
       item: action.payload
+    };
+    case BUY_PRODUCT:
+    return {
+      ...state,
+      selected: action.payload
     };
     default:
       return state;
