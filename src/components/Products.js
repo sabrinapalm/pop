@@ -6,18 +6,28 @@ import { fetchProducts, buyProduct } from '../actions/productActions'
 
 
 class Products extends Component {
+  constructor(){
+    super();
+    this.state = {
+      selected: [],
+    }
+  }
 
   componentDidMount() {
     this.props.fetchProducts();
   }
 
   onClick = (title, price, photo) => {
+    const { selected } = this.state;
+
     let product = {
       title,
       price,
       photo,
     }
-    this.props.buyProduct(product);
+    this.setState({ selected: [...selected, product] })
+    
+    this.props.buyProduct(selected);
   }
 
 render() {

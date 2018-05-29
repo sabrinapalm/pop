@@ -27,11 +27,5 @@ export const createProduct = (product) => dispatch => {
 
 
 export const buyProduct = (selected) => dispatch => {
-  let arr = [];
-  arr.push(selected);
-  console.log(arr);
-  dispatch({
-    type: BUY_PRODUCT,
-    payload: arr
-  })
+  console.log('BUY PRODUCT ACTION CALLED')
 };
