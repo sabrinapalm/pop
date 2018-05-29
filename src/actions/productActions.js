@@ -12,7 +12,7 @@ export const fetchProducts = () => dispatch => {
   })
 };
 
-export const createProduct = (product) => dispatch => {
+export const addProduct = (product) => dispatch => {
   console.log('CREATE PRODUCT ACTION CALLED')
   firebase.database().ref('products/').push({
     title: product.title,
@@ -26,6 +26,9 @@ export const createProduct = (product) => dispatch => {
 };
 
 
-export const buyProduct = (selected) => dispatch => {
-  console.log('BUY PRODUCT ACTION CALLED')
-};
+export const buyProduct = selected => {
+  return {
+    type: 'BUY_PRODUCT',
+    selected: selected
+  }
+}

@@ -17,17 +17,10 @@ class Products extends Component {
     this.props.fetchProducts();
   }
 
-  onClick = (title, price, photo) => {
-    const { selected } = this.state;
-
-    let product = {
-      title,
-      price,
-      photo,
-    }
-    this.setState({ selected: [...selected, product] })
-    
-    this.props.buyProduct(selected);
+  onClick = (product) => {
+    let action = buyProduct(product);
+    console.log(action);
+    this.props.dispatch(action);
   }
 
 render() {
@@ -36,7 +29,7 @@ render() {
       <img src={product.photo} alt={product.title}/>
       <p><strong>{product.title}</strong></p>
       <p>PRICE: {product.price}:-</p>
-      <button onClick={() => { this.onClick(product.title, product.price, product.photo); }}>ADD TO CART</button>
+      <button onClick={() => { this.onClick(product); }}>ADD TO CART</button>
     </div>
   ));
   return (
@@ -55,8 +48,7 @@ Products.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.items,
-  product: state.products.selected,
+  products: state.products.items
 });
 
 export default connect(mapStateToProps, { fetchProducts, buyProduct })(Products);

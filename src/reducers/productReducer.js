@@ -19,10 +19,8 @@ export default function(state = initialState, action) {
       item: action.payload
     };
     case BUY_PRODUCT:
-    return {
-      ...state,
-      selected: action.payload
-    };
+    return [...state, action.product];
+
     default:
       return state;
   }

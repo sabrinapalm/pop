@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createProduct } from '../actions/productActions';
+import { addProduct } from '../actions/productActions';
 
 class Admin extends Component {
 constructor() {
@@ -29,7 +29,7 @@ onSubmit(event) {
     };
 
   //CALL ACTION
-  this.props.createProduct(product);
+  this.props.addProduct(product);
 }
 
 
@@ -58,4 +58,4 @@ Admin.propTypes = {
   createProduct: PropTypes.func.isRequired
 }
 
-export default connect(null, { createProduct })(Admin);
+export default connect(null, { addProduct })(Admin);
