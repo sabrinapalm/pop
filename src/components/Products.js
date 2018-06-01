@@ -6,21 +6,13 @@ import { fetchProducts, buyProduct } from '../actions/productActions'
 
 
 class Products extends Component {
-  constructor(){
-    super();
-    this.state = {
-      selected: [],
-    }
-  }
 
   componentDidMount() {
     this.props.fetchProducts();
   }
 
   onClick = (product) => {
-    let action = buyProduct(product);
-    console.log(action);
-    this.props.dispatch(action);
+    this.props.buyProduct(product);
   }
 
 render() {
@@ -48,7 +40,7 @@ Products.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.items
+  products: state.products.items,
 });
 
 export default connect(mapStateToProps, { fetchProducts, buyProduct })(Products);

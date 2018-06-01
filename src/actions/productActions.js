@@ -1,6 +1,8 @@
 import { ADD_PRODUCT, FETCH_PRODUCTS, BUY_PRODUCT } from './types';
 import firebase from '../globals/firebase';
 
+
+//Fetch products from database
 export const fetchProducts = () => dispatch => {
   console.log('FETCH PRODUCTS ACTION CALLED')
   firebase.database().ref('products').once('value').then((snapshot) => {
@@ -12,6 +14,8 @@ export const fetchProducts = () => dispatch => {
   })
 };
 
+
+//Add product to database
 export const addProduct = (product) => dispatch => {
   console.log('CREATE PRODUCT ACTION CALLED')
   firebase.database().ref('products/').push({
@@ -26,9 +30,11 @@ export const addProduct = (product) => dispatch => {
 };
 
 
-export const buyProduct = selected => {
-  return {
-    type: 'BUY_PRODUCT',
-    selected: selected
-  }
-}
+//Add products to basket
+export const buyProduct = (product) => dispatch => {
+  console.log('BUY PRODUCT ACTION CALLED')
+  dispatch({
+    type: BUY_PRODUCT,
+    payload: product
+  })
+};

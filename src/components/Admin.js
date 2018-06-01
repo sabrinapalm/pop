@@ -55,7 +55,7 @@ onSubmit(event) {
 }
 
 Admin.propTypes = {
-  createProduct: PropTypes.func.isRequired
+  addProduct: PropTypes.func.isRequired
 }
 
 export default connect(null, { addProduct })(Admin);
