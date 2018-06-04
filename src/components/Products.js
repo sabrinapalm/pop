@@ -6,6 +6,12 @@ import { fetchProducts, buyProduct } from '../actions/productActions'
 
 
 class Products extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      price: 0,
+    }
+  }
 
   componentDidMount() {
     this.props.fetchProducts();
@@ -17,13 +23,14 @@ class Products extends Component {
 
 render() {
   const productItems = this.props.products.map(product => (
-    <div key={product.title}>
+    <div key={product.id}>
       <img src={product.photo} alt={product.title}/>
       <p><strong>{product.title}</strong></p>
       <p>PRICE: {product.price}:-</p>
-      <button onClick={() => { this.onClick(product); }}>ADD TO CART</button>
+      <button onClick={() => { this.onClick(product) }} >ADD TO CART</button>
     </div>
   ));
+
   return (
     <div>
       <div className="products">
@@ -41,6 +48,7 @@ Products.propTypes = {
 
 const mapStateToProps = state => ({
   products: state.products.items,
+  selected: state.products.selected,
 });
 
 export default connect(mapStateToProps, { fetchProducts, buyProduct })(Products);

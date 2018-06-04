@@ -4,7 +4,6 @@ import firebase from '../globals/firebase';
 
 //Fetch products from database
 export const fetchProducts = () => dispatch => {
-  console.log('FETCH PRODUCTS ACTION CALLED')
   firebase.database().ref('products').once('value').then((snapshot) => {
     let products = Object.values(snapshot.val());
     dispatch({
@@ -17,11 +16,11 @@ export const fetchProducts = () => dispatch => {
 
 //Add product to database
 export const addProduct = (product) => dispatch => {
-  console.log('CREATE PRODUCT ACTION CALLED')
   firebase.database().ref('products/').push({
     title: product.title,
     price: product.price,
     photo: product.photo,
+    id: product.id,
   })
   dispatch({
     type: ADD_PRODUCT,
@@ -32,7 +31,6 @@ export const addProduct = (product) => dispatch => {
 
 //Add products to basket
 export const buyProduct = (product) => dispatch => {
-  console.log('BUY PRODUCT ACTION CALLED')
   dispatch({
     type: BUY_PRODUCT,
     payload: product

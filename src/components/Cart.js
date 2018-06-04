@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { connect } from 'react-redux';
 
 class Cart extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      items: this.props.selected.length,
+      total: 0,
+    }
+  }
 
   render() {
+    const { selected } = this.props;
+    const selectedItems = selected.map(s => (
+      <p key={s.title}><a>{s.title}</a> <span className="price">{s.price}:-</span></p>
+    ));
+
+
     return (
       <div>
         <div className="container">
-          <h4>YOUR SHOPPING CART <span className="price"> <b>(4)</b></span></h4>
-          <p><a>Boba Fett Vinyl Bobblehead</a> <span className="price">199:- </span></p>
-          <p><a>BB-9E Vinyl Bobblehead</a> <span className="price">149:-</span></p>
-          <p><a>R2-D2 Vinyl</a> <span className="price">249:-</span></p>
-          <p><a>Yoda Vinyl Bobblehead</a> <span className="price">199:-</span></p>
-          <hr />
-          <p>Total <span className="price"><b>796:-</b></span></p>
+          <h4>YOUR SHOPPING CART <span className="price"> <b>{this.state.items}</b></span></h4>
+          {selectedItems}
+            <hr />
+            <p>Total <span className="price"><b>{this.state.total}:-</b></span></p>
           <button className="checkoutButton">CHECKOUT</button>
+
         </div>
+
+
         <div className="container">
         <h4>HISTORY</h4>
         </div>
@@ -24,4 +38,9 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+const mapStateToProps = state => ({
+  products: state.products.items,
+  selected: state.products.selected,
+});
+
+export default connect(mapStateToProps)(Cart);

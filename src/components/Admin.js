@@ -26,6 +26,7 @@ onSubmit(event) {
       title: this.state.title,
       price: this.state.price,
       photo: this.state.photo,
+      id: Math.floor((Math.random() * 1000000) + 1)
     };
 
   //CALL ACTION
