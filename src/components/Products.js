@@ -27,7 +27,7 @@ render() {
       <img src={product.photo} alt={product.title}/>
       <p><strong>{product.title}</strong></p>
       <p>PRICE: {product.price}:-</p>
-      <button onClick={() => { this.onClick(product) }} >ADD TO CART</button>
+      <button className="button" onClick={() => { this.onClick(product) }} >ADD TO CART</button>
     </div>
   ));
 

@@ -13,7 +13,6 @@ export const fetchProducts = () => dispatch => {
   })
 };
 
-
 //Add product to database
 export const addProduct = (product) => dispatch => {
   firebase.database().ref('products/').push({

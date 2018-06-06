@@ -11,10 +11,28 @@ class Cart extends Component {
     }
   }
 
-  render() {
+  componentDidMount() {
+    this.getTotal();
+  }
+
+  getTotal = () => {
     const { selected } = this.props;
+    let sum = 0;
+    for (let i = 0; i < selected.length; i++) {
+      sum = sum + selected[i].price;
+    }
+    this.setState({total: sum})
+  }
+
+
+  render() {
+    const { selected, history } = this.props;
     const selectedItems = selected.map(s => (
-      <p key={s.title}><a>{s.title}</a> <span className="price">{s.price}:-</span></p>
+      <p key={s.title + Math.floor((Math.random() * 1000000) + 1)}><a>{s.title}</a> <span className="price">{s.price}:-</span></p>
+    ));
+
+    const selectedHistory = history.map(h => (
+      <p key={h + Math.floor((Math.random() * 1000000) + 1)}>{h}</p>
     ));
 
 
@@ -32,6 +50,7 @@ class Cart extends Component {
 
         <div className="container">
         <h4>HISTORY</h4>
+        {selectedHistory}
         </div>
       </div>
     );
@@ -41,6 +60,7 @@ class Cart extends Component {
 const mapStateToProps = state => ({
   products: state.products.items,
   selected: state.products.selected,
+  history: state.products.history,
 });
 
 export default connect(mapStateToProps)(Cart);

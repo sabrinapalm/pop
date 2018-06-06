@@ -63,6 +63,7 @@
     padding: 10px 12px;
     text-decoration: none;
     font-size: 0.9em;
+    cursor: pointer;
 }
 
 .topnav a:hover {
@@ -158,4 +159,22 @@ input:focus {
   cursor: pointer;
   width: 100%;
   border-radius: 4px;
+}
+
+.button {
+  padding: 10px 10px;
+  font-size: 0.9em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  box-shadow: 0 5px #555;
+}
+
+.button:active {
+  background-color: #333;
+  box-shadow: 0 5px #555;
+  transform: translateY(4px);
 }
